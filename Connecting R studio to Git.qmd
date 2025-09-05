@@ -1,0 +1,65 @@
+---
+title: "Connecting R Studio and Github"
+format: 
+   html:
+     embed-resources: true
+editor: visual
+---
+
+## Connecting Github and R Studio
+
+1.  Install R studio and R
+
+2.  Install [Git](https://git-scm.com/downloads)
+
+3.  Make an account at [Github](github.com). Remember your username. Use your BU email.
+
+4.  **Open R studio** and go to terminal to execute the following commands.
+
+    `which git`
+
+    This should get you following results:
+
+    -   /usr/bin/git (Mac Users)
+
+    -   /c/Program Files/Git/cmd/git (Windows Users)
+
+5.  After above, execute the following commands,
+
+    -   `git config --global user.name 'Write your username'`
+
+    -   `git config --global user.email 'email id registered with Github'`
+
+    -   Don't forget the `' '` around the username and email.
+
+6.  After this, you should go to `Tools` and select `Global Options` where you would see `Git/SVN`.
+
+7.  Select that and you would see there is option to `create ssh key`. Click on it and it would create a ssh key for you.
+
+8.  Close this dialogue box and you would see the option to `view pubic key`. Click on it and copy your key which should start with `ssh-ed...`
+
+9.  Go to your Github Account and click on your profile icon.
+
+10. Select the settings and Click on `SSH and GPG Keys`.
+
+11. Select `New SSH Key` and Paste your SSH key from R studio here. Set up a name for you Key. Congratulations, You have successfully configured ssh now.
+
+12. Go back to R studio. Select Tools and in the `install.packages` option, install `usethis` package.
+
+13. Execute `usethis:: create_github_token`. It will take you to your github account and now create a token by selecting the duration for your token along with check marking permissions.
+
+14. Remember to copy your token as it would not show up again.
+
+15. Execute `usethis:: git_sitrep()`. It would show you your account details, check if everything is correct.
+
+16. Create a new R project by selecting `New Project` from `File` option. Check mark `git` option while creating a New project.
+
+17. Run `usethis::use_github()` and it will create a github repository.
+
+18. On GitHub, click on "Add a README" and add some text in the file.
+
+19. Save the file and commit it.
+
+20. In R studio, Click on `Git` option on the right top part.
+
+21. Click on `Pull` and you shall see the `README.md` in the files now.
